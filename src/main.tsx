@@ -19,6 +19,7 @@ import Page from "./pages/Page.tsx";
 import BannerDetail from "./pages/BannerDetail.tsx";
 import LinkedInPreviewPage from "./pages/LinkedInPreviewPage.tsx";
 import NewsletterPreviewPage from "./pages/NewsletterPreviewPage.tsx";
+import Auth0ProviderWithRedirect from "./components/auth/AuthProviderWithRedirect.tsx";
 
 const queryClient = new QueryClient();
 
@@ -82,23 +83,25 @@ const router = createBrowserRouter([
   {
     path: "/envid/:envId",
     element: (
-      <ErrorBoundary
-        fallbackRender={({ error }) => (
-          <div>
-            There was an error! <pre>{error.message}</pre>
-          </div>
-        )}
-      >
-        <Suspense
-          fallback={
-            <div className="flex w-screen h-screen justify-center">
-              <Loader />
+      <Auth0ProviderWithRedirect>
+        <ErrorBoundary
+          fallbackRender={({ error }) => (
+            <div>
+              There was an error! <pre>{error.message}</pre>
             </div>
-          }
+          )}
         >
-          <Layout />
-        </Suspense>
-      </ErrorBoundary>
+          <Suspense
+            fallback={
+              <div className="flex w-screen h-screen justify-center">
+                <Loader />
+              </div>
+            }
+          >
+            <Layout />
+          </Suspense>
+        </ErrorBoundary>
+      </Auth0ProviderWithRedirect>
     ),
     children: BaseRouting.map(p => ({
       path: `envid/:envId/${p.path}`,
@@ -131,68 +134,75 @@ const router = createBrowserRouter([
   {
     path: "/newsletter-preview/:slug",
     element: (
-      <ErrorBoundary
-        fallbackRender={({ error }) => (
-          <div>
-            There was an error! <pre>{error.message}</pre>
-          </div>
-        )}
-      >
-        <Suspense
-          fallback={
-            <div className="flex w-screen h-screen justify-center">
-              <Loader />
+
+      <Auth0ProviderWithRedirect>
+        <ErrorBoundary
+          fallbackRender={({ error }) => (
+            <div>
+              There was an error! <pre>{error.message}</pre>
             </div>
-          }
+          )}
         >
-          <NewsletterPreviewPage />
-        </Suspense>
-      </ErrorBoundary>
+          <Suspense
+            fallback={
+              <div className="flex w-screen h-screen justify-center">
+                <Loader />
+              </div>
+            }
+          >
+            <NewsletterPreviewPage />
+          </Suspense>
+        </ErrorBoundary>
+      </Auth0ProviderWithRedirect>
     ),
   },
   // Environment-specific preview routes
   {
     path: "/envid/:envId/linkedin-preview/:slug",
     element: (
-      <ErrorBoundary
-        fallbackRender={({ error }) => (
-          <div>
-            There was an error! <pre>{error.message}</pre>
-          </div>
-        )}
-      >
-        <Suspense
-          fallback={
-            <div className="flex w-screen h-screen justify-center">
-              <Loader />
+      <Auth0ProviderWithRedirect>
+        <ErrorBoundary
+          fallbackRender={({ error }) => (
+            <div>
+              There was an error! <pre>{error.message}</pre>
             </div>
-          }
+          )}
         >
-          <LinkedInPreviewPage />
-        </Suspense>
-      </ErrorBoundary>
+          <Suspense
+            fallback={
+              <div className="flex w-screen h-screen justify-center">
+                <Loader />
+              </div>
+            }
+          >
+            <LinkedInPreviewPage />
+          </Suspense>
+        </ErrorBoundary>
+      </Auth0ProviderWithRedirect>
     ),
   },
   {
     path: "/envid/:envId/newsletter-preview/:slug",
     element: (
-      <ErrorBoundary
-        fallbackRender={({ error }) => (
-          <div>
-            There was an error! <pre>{error.message}</pre>
-          </div>
-        )}
-      >
-        <Suspense
-          fallback={
-            <div className="flex w-screen h-screen justify-center">
-              <Loader />
+      <Auth0ProviderWithRedirect>
+        <ErrorBoundary
+          fallbackRender={({ error }) => (
+            <div>
+              There was an error! <pre>{error.message}</pre>
             </div>
-          }
+          )}
         >
-          <NewsletterPreviewPage />
-        </Suspense>
-      </ErrorBoundary>
+          <Suspense
+            fallback={
+              <div className="flex w-screen h-screen justify-center">
+                <Loader />
+              </div>
+            }
+          >
+            <NewsletterPreviewPage />
+          </Suspense>
+        </ErrorBoundary>
+      </Auth0ProviderWithRedirect>
     ),
   },
 ]);
