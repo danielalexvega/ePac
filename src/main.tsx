@@ -108,55 +108,6 @@ const router = createBrowserRouter([
       ...p,
     })),
   },
-  // Preview routes without Layout (no header/footer)
-  {
-    path: "/linkedin-preview/:slug",
-    element: (
-      <ErrorBoundary
-        fallbackRender={({ error }) => (
-          <div>
-            There was an error! <pre>{error.message}</pre>
-          </div>
-        )}
-      >
-        <Suspense
-          fallback={
-            <div className="flex w-screen h-screen justify-center">
-              <Loader />
-            </div>
-          }
-        >
-          <LinkedInPreviewPage />
-        </Suspense>
-      </ErrorBoundary>
-    ),
-  },
-  {
-    path: "/newsletter-preview/:slug",
-    element: (
-
-      <Auth0ProviderWithRedirect>
-        <ErrorBoundary
-          fallbackRender={({ error }) => (
-            <div>
-              There was an error! <pre>{error.message}</pre>
-            </div>
-          )}
-        >
-          <Suspense
-            fallback={
-              <div className="flex w-screen h-screen justify-center">
-                <Loader />
-              </div>
-            }
-          >
-            <NewsletterPreviewPage />
-          </Suspense>
-        </ErrorBoundary>
-      </Auth0ProviderWithRedirect>
-    ),
-  },
-  // Environment-specific preview routes
   {
     path: "/envid/:envId/linkedin-preview/:slug",
     element: (
