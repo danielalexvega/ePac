@@ -17,11 +17,12 @@ type HeroImageProps = Readonly<{
     itemId?: string;
   };
   buttonLink?: string;
+  imageBackgroundColor?: string;
 
 }>;
 
 
-const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
+const HeroImage: FC<HeroImageProps> = ({ data, buttonLink, imageBackgroundColor }) => {
   return (
     <div className="epac-dark-blue-theme flex flex-col py-10 lg:py-0 lg:flex-row lg:gap-8 max-w-[1100px] mx-auto">
       <div className="lg:basis-1/2 max-w-[550px] pt-10 lg:pt-[104px] pb-10 lg:pb-[160px] flex flex-col items-center lg:items-start gap-10">
@@ -52,7 +53,7 @@ const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
         )}
 
       </div>
-      <div className="lg:basis-1/2 max-w-[550px] bg-epacLightBlue"
+      <div className={`lg:basis-1/2 max-w-[550px] ${imageBackgroundColor || 'bg-epacDarkBlue'}`}
         {...createItemSmartLink(data.itemId)}
         {...createElementSmartLink("hero_image")}
       >

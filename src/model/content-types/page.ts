@@ -64,6 +64,24 @@ export type Page = CoreContentType<
      */
     readonly body: Elements.RichTextElement<Video | Disclaimer | CallToAction>;
     /**
+     * Hero Button Text
+     *
+     * Type: text
+     * Required: false
+     * Codename: hero_button_text
+     * Id: fba8603a-267b-40c5-aa3a-8f3d9e0a422f
+     */
+    readonly hero_button_text: Elements.TextElement;
+    /**
+     * Hero Button URL
+     *
+     * Type: text
+     * Required: false
+     * Codename: hero_button_url
+     * Id: f2bb3734-56cd-4913-9f79-0cbdc0d341fa
+     */
+    readonly hero_button_url: Elements.TextElement;
+    /**
      * URL
      *
      * Type: url_slug
@@ -93,6 +111,8 @@ export type PageElementCodenames =
   | "subheadline"
   | "hero_image"
   | "body"
+  | "hero_button_text"
+  | "hero_button_url"
   | "metadata__title"
   | "metadata__keywords"
   | "metadata__description"

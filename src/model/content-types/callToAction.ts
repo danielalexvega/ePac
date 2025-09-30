@@ -66,7 +66,7 @@ export type CallToAction = CoreContentType<
      * Button Label
      *
      * Type: text
-     * Required: true
+     * Required: false
      * Codename: button_label
      * Id: ca581835-4337-4add-bdd3-aa466c685514
      */
@@ -75,7 +75,7 @@ export type CallToAction = CoreContentType<
      * Button Link
      *
      * Type: modular_content
-     * Required: true
+     * Required: false
      * Codename: button_link
      * Id: 1872121b-6166-451e-8c26-9c78f2cfba47
      */

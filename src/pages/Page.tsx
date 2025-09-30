@@ -122,15 +122,16 @@ const Page: FC = () => {
     <div className="flex-grow">
       {
         page.elements.headline?.value && (
-          <PageSection color="bg-burgundy">
+          <PageSection color="bg-epacDarkBlue">
             <HeroImage
               data={{
                 headline: page.elements.headline,
                 subheadline: page.elements.subheadline,
                 heroImage: page.elements.hero_image,
+                heroButtonText: page.elements.hero_button_text,
                 itemId: page.system.id
               }}
-              buttonLink="nolink"
+              buttonLink={page.elements.hero_button_url?.value || "nolink"}
             />
           </PageSection>
         )

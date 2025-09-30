@@ -59,7 +59,12 @@ export type CollectionCodenames =
 /**
  * Type representing all workflows
  */
-export type WorkflowCodenames = "academic_resources" | "biographies" | "default" | "patient_resources";
+export type WorkflowCodenames =
+  | "academic_resources"
+  | "biographies"
+  | "default"
+  | "patient_resources"
+  | "product_workflow";
 
 /**
  * Type representing all taxonomies
@@ -77,14 +82,16 @@ export type TaxonomyCodenames =
 export type WorkflowStepCodenames =
   | "archived"
   | "copy_review"
+  | "draft_8405a5b"
   | "draft_97d445e"
   | "draft_a8b162c"
   | "draft_b242d4d"
   | "draft"
   | "legal_review"
+  | "marketing_review_9f2362c"
   | "marketing_review"
-  | "medical_review"
   | "peer_review"
+  | "product_review"
   | "published"
   | "reviewed_1778942"
   | "reviewed"
@@ -119,6 +126,7 @@ export type ElementCodenames =
   | "guidelines"
   | "headline"
   | "hero_button_text"
+  | "hero_button_url"
   | "hero_content"
   | "hero_image"
   | "hero_text"

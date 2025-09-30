@@ -69,6 +69,10 @@ const BaseRouting: RouteObject[] = [
     Component: Page,
   },
   {
+    path: "products/:slug",
+    Component: Page,
+  },
+  {
     path: "*",
     Component: NotFound,
   },
