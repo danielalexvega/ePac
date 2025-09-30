@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: ePac
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 4cadf737-f623-0004-1317-e48e55f12839
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -16,10 +16,12 @@
 export * from "./article.ts";
 export * from "./blogPost.ts";
 export * from "./callToAction.ts";
+export * from "./customerSpotlight.ts";
 export * from "./disclaimer.ts";
 export * from "./event.ts";
 export * from "./landingPage.ts";
 export * from "./page.ts";
 export * from "./person.ts";
+export * from "./product.ts";
 export * from "./service.ts";
 export * from "./video.ts";

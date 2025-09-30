@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: ePac
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 4cadf737-f623-0004-1317-e48e55f12839
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -16,7 +16,18 @@
 /**
  * Type representing all languages
  */
-export type LanguageCodenames = "de-DE" | "default" | "es-ES";
+export type LanguageCodenames =
+  | "de-AT"
+  | "de-DE"
+  | "default"
+  | "en-AU"
+  | "en-CA"
+  | "en-GB"
+  | "en-GH"
+  | "es-ES"
+  | "fr"
+  | "id"
+  | "pl";
 
 /**
  * Type representing all content types
@@ -25,23 +36,30 @@ export type ContentTypeCodenames =
   | "article"
   | "blog_post"
   | "call_to_action"
+  | "customer_spotlight"
   | "disclaimer"
   | "event"
   | "landing_page"
   | "page"
   | "person"
+  | "product"
   | "service"
   | "video";
 
 /**
  * Type representing all collections
  */
-export type CollectionCodenames = "default";
+export type CollectionCodenames =
+  | "academic_content"
+  | "default"
+  | "marketing_resources"
+  | "operations"
+  | "patient_resources";
 
 /**
  * Type representing all workflows
  */
-export type WorkflowCodenames = "default";
+export type WorkflowCodenames = "academic_resources" | "biographies" | "default" | "patient_resources";
 
 /**
  * Type representing all taxonomies
@@ -56,7 +74,23 @@ export type TaxonomyCodenames =
 /**
  * Type representing all worksflow steps across all workflows
  */
-export type WorkflowStepCodenames = "archived" | "draft" | "published" | "scheduled";
+export type WorkflowStepCodenames =
+  | "archived"
+  | "copy_review"
+  | "draft_97d445e"
+  | "draft_a8b162c"
+  | "draft_b242d4d"
+  | "draft"
+  | "legal_review"
+  | "marketing_review"
+  | "medical_review"
+  | "peer_review"
+  | "published"
+  | "reviewed_1778942"
+  | "reviewed"
+  | "scheduled"
+  | "staff_member_review"
+  | "translation";
 
 /**
  * Type representing all element codenames across all content types
@@ -65,12 +99,16 @@ export type ElementCodenames =
   | "article_type"
   | "author"
   | "autoplay"
+  | "background_image"
   | "biography"
   | "body_copy"
   | "body"
+  | "brand_image"
   | "button_label"
   | "button_link"
   | "caption"
+  | "cta_link"
+  | "cta_text"
   | "description"
   | "email"
   | "end_date"
@@ -80,7 +118,10 @@ export type ElementCodenames =
   | "first_name"
   | "guidelines"
   | "headline"
+  | "hero_button_text"
+  | "hero_content"
   | "hero_image"
+  | "hero_text"
   | "image_position"
   | "image"
   | "introduction"
@@ -94,7 +135,9 @@ export type ElementCodenames =
   | "name"
   | "phone"
   | "prefix"
+  | "product_image"
   | "publish_date"
+  | "referral_text"
   | "related_articles"
   | "start_date"
   | "subheadline"

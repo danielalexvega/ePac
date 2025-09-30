@@ -6,9 +6,9 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: ePac
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 4cadf737-f623-0004-1317-e48e55f12839
 * 
 * -------------------------------------------------------------------------------
 **/
@@ -113,9 +113,9 @@ export type Article = CoreContentType<
      * URL slug
      *
      * Type: url_slug
-     * Required: false
+     * Required: true
      * Codename: url_slug
-     * Id: f95032a0-481e-4297-ad58-76fa2eb7edaf
+     * Id: 33f5f8e9-aca2-4f52-a3b2-68ea6337ed59
      */
     readonly url_slug: Elements.UrlSlugElement;
   } & Metadata,

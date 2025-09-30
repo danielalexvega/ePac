@@ -6,16 +6,16 @@
 *  
 * -------------------------------------------------------------------------------
 * 
-* Project: Karma Health Demo
+* Project: ePac
 * Environment: Production
-* Id: d89e24b9-c2c4-0153-3e3b-8d8abd406750
+* Id: 4cadf737-f623-0004-1317-e48e55f12839
 * 
 * -------------------------------------------------------------------------------
 **/
 
 import type { Elements } from "@kontent-ai/delivery-sdk";
 import type { CoreContentType } from "../system/index.ts";
-import type { Video, Disclaimer, CallToAction, Event, Article, Page } from "./index.ts";
+import type { Video, Disclaimer, CallToAction, CustomerSpotlight, Event, Article, Page } from "./index.ts";
 
 /**
  * Landing Page
@@ -33,6 +33,7 @@ export type LandingPage = CoreContentType<
      * Required: true
      * Codename: headline
      * Id: 19b37bc8-cd8a-43a2-a647-61732524abed
+     * Guidelines: This shows up as the headline in the page hero.
      */
     readonly headline: Elements.TextElement;
     /**
@@ -54,6 +55,24 @@ export type LandingPage = CoreContentType<
      */
     readonly hero_image: Elements.AssetsElement;
     /**
+     * Hero Content
+     *
+     * Type: rich_text
+     * Required: false
+     * Codename: hero_content
+     * Id: 44f20890-164d-49b3-90a8-ecde67a04edf
+     */
+    readonly hero_content: Elements.RichTextElement<CoreContentType>;
+    /**
+     * Hero Button Text
+     *
+     * Type: text
+     * Required: false
+     * Codename: hero_button_text
+     * Id: 74ad96fd-e807-43c8-822e-68aef97efa26
+     */
+    readonly hero_button_text: Elements.TextElement;
+    /**
      * Body Copy
      *
      * Type: rich_text
@@ -61,7 +80,7 @@ export type LandingPage = CoreContentType<
      * Codename: body_copy
      * Id: 7b9826ff-5cb0-450f-b16a-bd176aed04cf
      */
-    readonly body_copy: Elements.RichTextElement<Video | Disclaimer | CallToAction>;
+    readonly body_copy: Elements.RichTextElement<Video | Disclaimer | CallToAction | CustomerSpotlight>;
     /**
      * Featured Content
      *
@@ -91,6 +110,8 @@ export type LandingPageElementCodenames =
   | "headline"
   | "subheadline"
   | "hero_image"
+  | "hero_content"
+  | "hero_button_text"
   | "body_copy"
   | "featured_content"
   | "subpages";

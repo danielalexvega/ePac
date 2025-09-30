@@ -9,6 +9,8 @@ export default {
     extend: {
       colors: {
         burgundy: "#993265",
+        epacDarkBlue: "#012a44",
+        epacLightBlue: "#23b6e3",
         azure: "#009edb",
         white: '#ffffff',
         grey: {
@@ -58,8 +60,7 @@ export default {
 
     },
       fontFamily: {
-        sans: ['"Source Sans 3"', 'Arial', 'sans-serif'],
-        libre: ['"Abhaya Libre"', "Arial"]
+        sans: ['"Montserrat"', 'sans-serif']
       }
     },
     container: {

@@ -8,13 +8,13 @@ export const defaultPortableRichTextResolvers = {
   },
   types: {
     image: ({ value }) => (
-      <figure className="flex flex-col gap-4 items-center mb-10 relative w-full lg:w-[900px]">
+      <figure className="flex flex-col gap-4 items-center mb-10 relative w-full max-w-full">
         <img
           src={value.asset.url}
           alt={value.asset.alt}
           width={900}
           height={600}
-          className="w-[900px] h-[600px] object-cover rounded-md"
+          className="w-full max-w-full h-auto object-cover rounded-md"
         />
         <figcaption className="text-body-lg text-grey-light">
           {value.asset.alt}

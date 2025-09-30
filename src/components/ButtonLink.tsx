@@ -5,7 +5,7 @@ import { createPreviewLink } from "../utils/link";
 interface ButtonLinkProps {
   href: string;
   children: React.ReactNode;
-  style?: "azure" | "transparent";
+  style?: "orange" | "transparent";
   className?: string;
 }
 
@@ -17,8 +17,8 @@ const ButtonLink: React.FC<ButtonLinkProps> = ({ href, children, style = "transp
     <NavLink
       to={createPreviewLink(href, isPreview)}
       className={`${
-        style === "azure" ? "button-azure" : ""
-      } inline-block w-fit px-16 py-3 text-body-lg font-semibold text-button-text-color hover:text-button-text-hover-color bg-button-background-color hover:bg-button-background-hover-color border-2 border-button-border-color hover:border-button-border-hover-color rounded-full transition-colors duration-200 ${className}`}
+        style === "orange" ? "button-orange" : ""
+      } inline-block w-fit px-[15px] py-[15px] text-[14px] font-semibold uppercase text-white hover:text-[#fe6232] bg-[#fe6232] hover:bg-white border-2 border-[#fe6232] hover:border-[#fe6232] rounded transition-colors duration-200 ${className}`}
     >
       {children}
     </NavLink>

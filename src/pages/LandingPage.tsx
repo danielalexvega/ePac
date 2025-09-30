@@ -1,10 +1,10 @@
 import { DeliveryError } from "@kontent-ai/delivery-sdk";
 
 import HeroImage from "../components/HeroImage";
-import PageContent from "../components/PageContent";
 import PageSection from "../components/PageSection";
+import CustomerSpotlight from "../components/CustomerSpotlight";
 import "../index.css";
-import { LanguageCodenames, type LandingPage } from "../model";
+import { LanguageCodenames, type LandingPage, type CustomerSpotlight as CustomerSpotlightType } from "../model";
 import { createClient } from "../utils/client";
 import { FC, useCallback, useState, useEffect } from "react";
 import { useAppContext } from "../context/AppContext";
@@ -119,21 +119,31 @@ const LandingPage: FC = () => {
     return <div className="flex-grow" />;
   }
 
+  console.log(landingPage);
+
   return (
     <div className="flex-grow">
-      <PageSection color="bg-burgundy">
+      <PageSection color="bg-epacDarkBlue">
         <HeroImage
           data={{
             headline: landingPage.elements.headline,
             subheadline: landingPage.elements.subheadline,
             heroImage: landingPage.elements.hero_image,
+            heroButtonText: landingPage.elements.hero_button_text,
+            heroContent: landingPage.elements.hero_content,
             itemId: landingPage.system.id
           }}
         />
       </PageSection>
       <PageSection color="bg-white">
-        <PageContent body={landingPage.elements.body_copy!} itemId={landingPage.system.id} elementName="body_copy" />
+        {/* <PageContent body={landingPage.elements.body_copy!} itemId={landingPage.system.id} elementName="body_copy" /> */}
+        
       </PageSection>
+      {landingPage.elements.body_copy?.linkedItems?.find(item => item.system.type === "customer_spotlight") && (
+        <CustomerSpotlight 
+          data={landingPage.elements.body_copy.linkedItems.find(item => item.system.type === "customer_spotlight") as CustomerSpotlightType} 
+        />
+      )}
       <FeaturedContent featuredContent={landingPage.elements.featured_content!} parentId={landingPage.system.id}></FeaturedContent>
     </div>
   );

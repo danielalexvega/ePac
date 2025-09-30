@@ -2,39 +2,57 @@ import { Elements } from "@kontent-ai/delivery-sdk";
 import { FC } from "react";
 import ButtonLink from "./ButtonLink";
 import { createElementSmartLink, createItemSmartLink } from "../utils/smartlink";
+import { PortableText } from "@kontent-ai/rich-text-resolver/utils/react";
+import { transformToPortableText } from "@kontent-ai/rich-text-resolver";
+import { defaultPortableRichTextResolvers } from "../utils/richtext";
+import { CoreContentType } from "../model/system";
 
 type HeroImageProps = Readonly<{
   data: {
     headline?: Elements.TextElement;
     subheadline?: Elements.TextElement;
     heroImage?: Elements.AssetsElement;
+    heroButtonText?: Elements.TextElement;
+    heroContent?: Elements.RichTextElement<CoreContentType>;
     itemId?: string;
   };
   buttonLink?: string;
 
 }>;
 
+
 const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
   return (
-    <div className="burgundy-theme flex flex-col py-10 lg:py-0 lg:flex-row lg:gap-32">
-      <div className="lg:basis-1/2 pt-10 lg:pt-[104px] pb-10 lg:pb-[160px] flex flex-col items-center lg:items-start gap-10">
-        <h1 className="text-center lg:text-left font-libre text-[64px] md:text-[94px] text-heading-1-color font-bold leading-[64px] md:leading-[78px]"
+    <div className="epac-dark-blue-theme flex flex-col py-10 lg:py-0 lg:flex-row lg:gap-8 max-w-[1100px] mx-auto">
+      <div className="lg:basis-1/2 max-w-[550px] pt-10 lg:pt-[104px] pb-10 lg:pb-[160px] flex flex-col items-center lg:items-start gap-10">
+        <h1 className="text-center lg:text-left font-sans text-[64px] md:text-[64px] text-heading-1-color leading-[64px] md:leading-[78px] font-semibold"
           {...createItemSmartLink(data.itemId)}
           {...createElementSmartLink("headline")}
         >
           {data.headline?.value}
         </h1>
-        <p className="text-center lg:text-left font-sans text-xl text-body-color"
+        <p className="text-center lg:text-left font-sans text-body-color text-sm leading-[150%]"
           {...createItemSmartLink(data.itemId)}
           {...createElementSmartLink("subheadline")}
         >{data.subheadline?.value}</p>
+
         {buttonLink != "nolink" && (
           <ButtonLink href={buttonLink ?? "services"}>
-            <p>Explore our services</p>
+            <p>{data.heroButtonText?.value || "Get a free quote"}</p>
           </ButtonLink>
         )}
+
+        {data.heroContent && data.heroContent.value && (
+          <div className="text-center lg:text-left font-sans text-lg text-body-color rich-text-body w-full max-w-[550px]"
+            {...createItemSmartLink(data.itemId)}
+            {...createElementSmartLink("hero_content")}
+          >
+            <PortableText value={transformToPortableText(data.heroContent.value)} components={defaultPortableRichTextResolvers} />
+          </div>
+        )}
+
       </div>
-      <div className="lg:basis-1/2"
+      <div className="lg:basis-1/2 max-w-[550px] bg-epacLightBlue"
         {...createItemSmartLink(data.itemId)}
         {...createElementSmartLink("hero_image")}
       >
@@ -42,8 +60,8 @@ const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
           ? (
             data.heroImage.value[0].type?.startsWith('image') ? (
               <img
-                className="object-cover h-full mx-auto"
-                width={660}
+                className="object-contain w-full h-full mx-auto"
+                width={520}
                 height={770}
                 src={`${data.heroImage.value[0].url}?auto=format&w=800`}
                 alt={data.heroImage.value[0].description ?? "image-alt"}
@@ -55,8 +73,8 @@ const HeroImage: FC<HeroImageProps> = ({ data, buttonLink }) => {
                 loop={true}
                 muted={true}
                 width={660}
-                height={770}    
-                className="object-cover h-full mx-auto"
+                height={770}
+                className="object-contain w-full h-full mx-auto"
               />
             )
           ) : <></>}

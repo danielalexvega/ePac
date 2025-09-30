@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 h1, h2, h3 {
-  @apply font-libre;
+  @apply font-sans;
 }
 
 :root {
@@ -73,6 +73,20 @@ h1, h2, h3 {
     --color-tag-border: var(--color-creme);
 
     @apply button-azure-on-burgundy;
+}
+
+.epac-dark-blue-theme {
+  --color-background: var(--color-epacDarkBlue);
+  --color-heading-1: var(--color-white);
+  --color-heading-2: var(--color-white);
+  --color-heading-3: var(--color-white);
+  --color-body: var(--color-white);
+  --color-button-background: var(--color-epacDarkBlue);
+  --color-button-background-hover: var(--color-epacLightBlue);
+  --color-button-text-hover: var(--color-epacDarkBlue);
+  --color-button-border-hover: var(--color-epacLightBlue);
+  --color-tag-text: var(--color-white);
+  --color-tag-border: var(--color-white);
 }
 
 .azure-theme {
